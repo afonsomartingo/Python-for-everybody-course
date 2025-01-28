@@ -56,3 +56,4 @@ import re
 print( sum( [ ****** *** * in **********('[0-9]+',**************************.read()) ] ) )
 Please don't waste a lot of time trying to figure out the shortest solution until you have completed the homework. List comprehension is mentioned in Chapter 10 and the read() method is covered in Chapter 7.'''
 
+print( sum( [ int(x) for x in re.findall('[0-9]+', open('regex_sum_2166371.txt').read()) ] ) )
