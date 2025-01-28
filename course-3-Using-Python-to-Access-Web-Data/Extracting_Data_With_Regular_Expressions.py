@@ -24,3 +24,21 @@ everyone needs to know how to program ...
 The sum for the sample text above is 27486. The numbers can appear anywhere in the line. There can be any number of numbers in each line (including none).
 Handling The Data
 The basic outline of this problem is to read the file, look for integers using the re.findall(), looking for a regular expression of '[0-9]+' and then converting the extracted strings to integers and summing up the integers.'''
+
+
+import re  # Import the regular expression module
+
+total = 0  # Initialize the total variable to zero
+fh = open('regex_sum_2166371.txt')  # Open the file containing the data
+
+# Loop through each line in the file
+for line in fh:
+    # Use regular expression to find all occurrences of one or more digits in the line
+    numbers = re.findall('[0-9]+', line)
+    # Loop through each number found in the line
+    for number in numbers:
+        # Convert the string representation of the number to an integer and add it to the total
+        total += int(number)
+
+# Print the total sum of all numbers found in the file
+print(total)
