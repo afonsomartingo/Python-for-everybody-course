@@ -30,27 +30,37 @@ Retrieving http://py4e-data.dr-chuck.net/comments_42.xml
 Retrieved 4189 characters
 Count: 50
 Sum: 2...'''
+import urllib.request  # Importing urllib.request for URL operations
+import xml.etree.cElementTree as ET  # Importing ElementTree for XML parsing
 
-import urllib.request
-import xml.etree.cElementTree as ET
-
+# Prompting user for URL input
 url = input('Enter location: ')
+# Setting default URL if no input provided
 if len(url) < 1 : 
     url = 'http://py4e-data.dr-chuck.net/comments_42.xml'
 
+# Printing the URL being retrieved
 print('Retrieving', url)
+# Opening the URL and reading the data
 uh = urllib.request.urlopen(url)
 data = uh.read()
 
+# Printing the number of characters retrieved
 print('Retrieved',len(data),'characters')
+# Parsing the XML data
 tree = ET.fromstring(data)
 
+# Finding all 'count' tags in the XML
 counts = tree.findall('.//count')
+# Initializing an empty list to store numbers
 nums = list()
 
+# Iterating through each 'count' tag and appending its text to the nums list
 for result in counts:
-    print(result.text)
-    nums.append(int(result.text))
+    print(result.text)  # Printing the text of each 'count' tag
+    nums.append(int(result.text))  # Converting text to int and appending to nums
 
+# Printing the count of numbers found
 print('Count:', len(nums))
+# Printing the sum of the numbers found
 print('Sum:', sum(nums))
