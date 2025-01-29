@@ -48,7 +48,7 @@ ctx.verify_mode = ssl.CERT_NONE
 # Get URL from user input, with a default value if empty
 url = input("Enter url: ")
 if len(url) < 1:
-    url = "http://py4e-data.dr-chuck.net/comments_42.json"
+    url = "http://py4e-data.dr-chuck.net/comments_2166376.json"
 
 print('Retrieving', url)
 # Open URL and read the data
